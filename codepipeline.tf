@@ -68,12 +68,26 @@ resource "aws_sns_topic_subscription" "approval" {
 }
 
 # -----------------------------------------------------------------------------
-# CodePipeline
+# CodePipeline with Git Push Webhook Trigger
 # -----------------------------------------------------------------------------
 resource "aws_codepipeline" "pipeline" {
   name          = "${local.name_prefix}-pipeline"
   role_arn      = aws_iam_role.codepipeline.arn
-  pipeline_type = "V1"
+  pipeline_type = "V2"
+
+  trigger {
+    provider_type = "CodeStarSourceConnection"
+
+    git_configuration {
+      source_action_name = "GitHubSource"
+
+      push {
+        branches {
+          includes = [var.github_branch]
+        }
+      }
+    }
+  }
 
   artifact_store {
     location = aws_s3_bucket.artifacts.bucket
@@ -95,7 +109,7 @@ resource "aws_codepipeline" "pipeline" {
         ConnectionArn        = aws_codeconnections_connection.github.arn
         FullRepositoryId     = var.github_repository
         BranchName           = var.github_branch
-        DetectChanges        = "true"
+        DetectChanges        = "false"
         OutputArtifactFormat = "CODE_ZIP"
       }
     }
