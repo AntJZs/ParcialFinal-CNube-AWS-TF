@@ -114,7 +114,7 @@ box-shadow:0 14px 36px rgba(0,0,0,.28)}
 </ul><p style="">Trabajo presentado para <strong>Computación en la nube</strong>, grupo <strong>601</strong></p><hr style="color=#CCF;">
 <h3 style="text-align:center;margin-top:0">Información de la instancia</h3><ul style="columns:3;/* -webkit-columns:2; */column-gap:24px;list-style-type: none;">
 
-<li><span style="color:var(--aws);font-weight:800">ID de la imagen: </span>$IMAGE_ID
+<li><span style="color:var(--aws);font-weight:800">ID de la imagen: </span>$CONTAINER_ID
 </li>
 <li><span style="color:var(--aws);font-weight:800">Zona de disponibilidad: </span>$AVAILABILITY_ZONE
 </li><li><span style="color:var(--aws);font-weight:800">Creado el: </span>$STARTED_AT
