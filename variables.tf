@@ -74,7 +74,7 @@ variable "container_port" {
 }
 
 variable "domain_name" {
-  description = "Custom domain name (e.g. final.slac.space)"
+  description = "Custom domain name"
   type        = string
   default     = "final.slac.space"
 }

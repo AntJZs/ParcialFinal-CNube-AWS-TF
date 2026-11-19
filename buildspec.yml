@@ -8,8 +8,8 @@ phases:
       - aws ecr get-login-password --region "$AWS_DEFAULT_REGION" | docker login --username AWS --password-stdin "$ECR_REGISTRY"
       - COMMIT_HASH=$(echo "${CODEBUILD_RESOLVED_SOURCE_VERSION:-latest}" | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH}
-      - echo "Target ECR repository: $ECR_REPOSITORY_URI"
-      - echo "Release image tag: $IMAGE_TAG"
+      - 'echo "Target ECR repository: $ECR_REPOSITORY_URI"'
+      - 'echo "Release image tag: $IMAGE_TAG"'
 
   build:
     commands:
