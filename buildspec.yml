@@ -1,0 +1,31 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Logging in to Amazon ECR..."
+      - ECR_REGISTRY=$(echo "$ECR_REPOSITORY_URI" | cut -d/ -f1)
+      - aws ecr get-login-password --region "$AWS_DEFAULT_REGION" | docker login --username AWS --password-stdin "$ECR_REGISTRY"
+      - COMMIT_HASH=$(echo "${CODEBUILD_RESOLVED_SOURCE_VERSION:-latest}" | cut -c 1-7)
+      - IMAGE_TAG=${COMMIT_HASH}
+      - echo "Target ECR repository: $ECR_REPOSITORY_URI"
+      - echo "Release image tag: $IMAGE_TAG"
+
+  build:
+    commands:
+      - echo "Building Docker image from image/ directory..."
+      - docker build -t "$ECR_REPOSITORY_URI:$IMAGE_TAG" -t "$ECR_REPOSITORY_URI:latest" image/
+
+  post_build:
+    commands:
+      - echo "Pushing immutable release tag ($IMAGE_TAG)..."
+      - docker push "$ECR_REPOSITORY_URI:$IMAGE_TAG"
+      - echo "Pushing latest convenience tag..."
+      - docker push "$ECR_REPOSITORY_URI:latest"
+      - echo "Writing ECS imagedefinitions.json..."
+      - printf '[{"name":"%s","imageUri":"%s"}]' "$CONTAINER_NAME" "$ECR_REPOSITORY_URI:$IMAGE_TAG" > imagedefinitions.json
+      - cat imagedefinitions.json
+
+artifacts:
+  files:
+    - imagedefinitions.json

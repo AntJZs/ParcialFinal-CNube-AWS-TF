@@ -1,3 +1,12 @@
-.terraform*
-terraform.tfstate*
-*.md
+# Terraform local execution files
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+
+# Sensitive variable definitions
+terraform.tfvars
+*.auto.tfvars

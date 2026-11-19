@@ -1,0 +1,23 @@
+aws_region   = "us-east-1"
+project_name = "parcialfinal"
+environment  = "dev"
+
+# GitHub integration for CodePipeline
+github_repository = "AntJZs/ParcialFinal-CNube-AWS-TF"
+github_branch     = "main"
+
+# Approver email for manual deployment approval
+approval_email = "approver@example.com"
+
+# Existing ACM certificate in us-east-1
+existing_acm_certificate_arn = "arn:aws:acm:us-east-1:123456789012:certificate/example-cert-id"
+
+# Domain name for reference
+domain_name = "final.slac.space"
+
+# ECS Task Sizing and Scaling
+desired_size     = 2
+scaling_min_size = 2
+scaling_max_size = 4
+task_cpu         = 256
+task_memory      = 512
