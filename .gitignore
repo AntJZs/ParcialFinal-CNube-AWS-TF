@@ -1,4 +1,3 @@
-
 # Terraform local execution files
 .terraform/
 .terraform.lock.hcl
