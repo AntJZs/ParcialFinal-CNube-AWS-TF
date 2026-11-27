@@ -105,14 +105,14 @@ box-shadow:0 14px 36px rgba(0,0,0,.28)}
 <div class="eyebrow" style="margin-top:24px">Certificaciones de infraestructura a</div>
 <h1 class="title-inline">AWS <span style="color:#9db0c8">vs</span> Cisco <span style="color:#9db0c8">vs</span> OCI</h1><span style="color:#9db0c8">
 <p class="lead">¿Qué certificación tiene hoy más salida laboral, mercado y proyección?</p>
-<p class="lead"><strong style="color:white">Respuesta corta:</strong> para la mayoría de perfiles de infraestructura moderna, <span style="color:var(--aws);font-weight:800">AWS</span> ofrece un mercado más amplio. Cisco sigue siendo la apuesta especializada para networking.</p>
+<p class="lead"><strong style="color:white">Respuesta corta:</strong> para la mayoría de perfiles de infraestructura moderna, <span style="color:var(--aws);font-weight:800">AWS</span> ofrece un mercado mucho más amplio. Cisco sigue siendo la apuesta especializada para networking.</p>
 <div class="card" style="text-align:left;margin:0 auto 28px">
 <h3 style="text-align:center;margin-top:0">Integrantes</h3>
 <ul style="columns: 2;/* -webkit-columns:2; *//* column-gap:24px; */">
 <li>Antonio De León Jiménez</li>
-<li>Maria Camila Rodriguez Martínez</li>
+<li>María Camila Rodriguez Martínez</li>
 </ul><p style="">Trabajo presentado para <strong>Computación en la nube</strong>, grupo <strong>601</strong></p><hr style="color=#CCF;">
-<h3 style="text-align:center;margin-top:0">Información de la instancia</h3><ul style="columns:3;/* -webkit-columns:2; */column-gap:24px;list-style-type: none;">
+<h3 style="text-align:center;margin-top:0">Información de la instancia</h3><ul style="columns:2;/* -webkit-columns:2; */column-gap:24px;list-style-type: none;">
 
 <li><span style="color:var(--aws);font-weight:800">ID de la imagen: </span>$CONTAINER_ID
 </li>
